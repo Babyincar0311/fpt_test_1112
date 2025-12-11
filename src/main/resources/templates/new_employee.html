@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Save Employee</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container my-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="text-center" th:text="${employee.id == null} ? 'Add New Employee' : 'Update Employee'"></h3>
+                </div>
+                <div class="card-body">
+
+                    <form action="#" th:action="@{/saveEmployee}" th:object="${employee}" method="POST">
+
+                        <input type="hidden" th:field="*{id}" />
+
+                        <div class="form-group">
+                            <label>Employee Name</label>
+                            <input type="text" th:field="*{name}"
+                                   placeholder="Enter name" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Salary</label>
+                            <input type="number" th:field="*{salary}"
+                                   placeholder="Enter salary" class="form-control" required step="0.01">
+                        </div>
+
+                        <div class="box-footer text-center">
+                            <button type="submit" class="btn btn-success">Save</button>
+                            <a th:href="@{/}" class="btn btn-secondary">Cancel</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
