@@ -15,11 +15,11 @@ public class EmployeeController {
     @Autowired
     private EmployeeService service;
 
-    // 1. Trang chủ: Hiển thị danh sách
+    // 1. Hiển thị danh sách
     @GetMapping("/")
     public String viewHomePage(Model model) {
         model.addAttribute("listEmployees", service.getEmployees());
-        return "index"; // Trả về file index.html
+        return "index";
     }
 
     // 2. Form thêm mới
@@ -27,7 +27,7 @@ public class EmployeeController {
     public String showNewEmployeeForm(Model model) {
         Employee employee = new Employee();
         model.addAttribute("employee", employee);
-        return "new_employee"; // Trả về file new_employee.html
+        return "new_employee";
     }
 
     // 3. Xử lý lưu
